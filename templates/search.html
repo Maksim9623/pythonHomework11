@@ -2,13 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Candidates</title>
+    <title>Search</title>
 </head>
 <body>
-    <h1>Все кандидаты</h1>
+    <h1>Hайдено кандидатов {{ candidates_len }}</h1>
+
     {% for candidate in candidates %}
         <p><a href="/candidate/{{ candidate.id }}">{{ candidate.name }}</a></p>
-
     {% endfor %}
+
 </body>
 </html>

@@ -23,7 +23,11 @@ def get_candidate(candidate_id):
 
 
 def get_candidates_by_name(candidate_name):
-    pass
+    #return [candidate for candidate in info if candidate_name in candidate['name']]
+
+    for candidate in info:
+        if candidate_name.lower() in candidate['name'].lower():
+            return candidate
 
 
 def get_candidates_by_skill(skill_name):
