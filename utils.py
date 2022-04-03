@@ -2,7 +2,7 @@ import json
 
 info = []
 
-
+# функция возвращает список всех кандидатов
 def load_candidates_from_json(path):
     global info
     with open(path, "r", encoding="utf-8") as file:
@@ -10,6 +10,7 @@ def load_candidates_from_json(path):
     return info
 
 
+# функция возвращает одного кандидата по его id
 def get_candidate(candidate_id):
     for candidate in info:
         if candidate['id'] == candidate_id:
@@ -22,13 +23,17 @@ def get_candidate(candidate_id):
     return {'not found': 'Ошибка ввода'}
 
 
+# функция возвращает кандидатов по имени
 def get_candidates_by_name(candidate_name):
-    #return [candidate for candidate in info if candidate_name in candidate['name']]
+    return [candidate for candidate in info if candidate_name.lower() in candidate['name'].lower()]
 
-    for candidate in info:
-        if candidate_name.lower() in candidate['name'].lower():
-            return candidate
+    # не могу понять почему не так отрабатывает цикл.
+    # for candidate in info:
+        # if candidate_name.lower() in candidate['name'].lower():
+            # return candidate
 
 
+# функция возвращает кандидатов по навыку
 def get_candidates_by_skill(skill_name):
-    pass
+    return [candidate for candidate in info if skill_name.lower() in candidate['skills'].lower()]
+
