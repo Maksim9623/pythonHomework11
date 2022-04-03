@@ -35,5 +35,11 @@ def get_candidates_by_name(candidate_name):
 
 # функция возвращает кандидатов по навыку
 def get_candidates_by_skill(skill_name):
-    return [candidate for candidate in info if skill_name.lower() in candidate['skills'].lower()]
+    candidate = []
+    for candidates in info:
+        skills = candidates['skills'].lower().split(', ')
+        if skill_name in skills:
+            candidate.append(candidates)
+    return candidate
+
 
